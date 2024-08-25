@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist Analysis Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .table-container {
+            flex: 1;
+            margin-right: 20px;
+            overflow-y: auto;
+            max-height: 600px;
+        }
+        .chart-container {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+        }
+        .chart-container h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .chart-item {
+            margin-bottom: 20px;
+        }
+        .chart-item iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Table of Top 7 Tracks -->
+        <div class="table-container">
+            <h2>Top 7 Tracks</h2>
+            {{ charts['Table']|safe }}
+        </div>
+        <div class="chart-container">
+            <!-- Pie Chart: Genre Distribution -->
+            <div class="chart-item">
+                <h2>Genre Distribution</h2>
+                {{ charts['Genre Distribution']|safe }}
+            </div>
+
+            <!-- Radar Chart: Track Features -->
+            <div class="chart-item">
+                <h2>Track Features Radar Chart</h2>
+                {{ charts['Track Features Radar Chart']|safe }}
+            </div>
+
+            <!-- Scatter Plot: Danceability vs. Energy -->
+            <div class="chart-item">
+                <h2>Danceability vs. Energy</h2>
+                {{ charts['Danceability vs. Energy']|safe }}
+            </div>
+
+            <!-- Line Chart: Track Popularity Over Time -->
+            <div class="chart-item">
+                <h2>Track Popularity Over Time</h2>
+                {{ charts['Track Popularity Over Time']|safe }}
+            </div>
+
+            <!-- Histogram: Track Duration Distribution -->
+            <div class="chart-item">
+                <h2>Track Duration Distribution</h2>
+                {{ charts['Track Duration Distribution']|safe }}
+            </div>
+
+            <!-- Bar Chart: Artist Popularity -->
+            <div class="chart-item">
+                <h2>Artist Popularity</h2>
+                {{ charts['Artist Popularity']|safe }}
+            </div>
+
+            <!-- Scatter Plot: Loudness vs. Valence -->
+            <div class="chart-item">
+                <h2>Loudness vs. Valence</h2>
+                {{ charts['Loudness vs. Valence']|safe }}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
